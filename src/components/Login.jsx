@@ -27,6 +27,7 @@ const Login = () => {
         required
           id="outline-required"
           label="Required - Username"
+          color="success"
           variant="outlined"
         />
         <br />
@@ -34,6 +35,7 @@ const Login = () => {
         required
           id="outline-required"
           label="Required - Password"
+          color="success"
           variant="outlined"
         />
         <br />
