@@ -41,6 +41,7 @@ const Signup = () => {
         required
           id="outline-required"
           label="Required - Name"
+          color="secondary"
           variant="outlined"
           name="name"
           value={form.name}
@@ -51,6 +52,7 @@ const Signup = () => {
         required
           id="outline-required"
           label="Required - Email ID"
+          color="secondary"
           variant="outlined"
           name="emailId"
           value={form.emailId}
@@ -61,6 +63,7 @@ const Signup = () => {
         required
           id="outline-required"
           label="Required - Contact Number"
+          color="secondary"
           variant="outlined"
           name="contactNo"
           value={form.contactNo}
@@ -71,6 +74,7 @@ const Signup = () => {
         required
           id="outline-required"
           label="Required - Password"
+          color="secondary"
           variant="outlined"
           name="password"
           value={form.password}
