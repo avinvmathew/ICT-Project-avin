@@ -1,14 +1,14 @@
 import './App.css'
-import Login from './components/Login'
 import Navbar from './components/Navbar'
+import Login from './components/Login'
 import Signup from './components/Signup'
-import {Routes,Route} from 'react-router-dom'                   
-
+import{Routes,Route} from 'react-router-dom'
 function App() {
- 
+  
+
   return (
     <>
-      <h1>Event Management Software</h1>
+     <b> <h2>SoundScape Creators</h2></b>
       <Navbar/>
       <br/>
       <Routes>
