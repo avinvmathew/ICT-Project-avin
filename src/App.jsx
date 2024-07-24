@@ -1,25 +1,16 @@
-import { useState } from 'react';
-// import Login from './components/LoginPage/Login';
-// import Navbar from './components/LoginPage/Navbar';
-// import Signup from './components/LoginPage/Signup';
-// import { Routes, Route, useNavigate } from 'react-router-dom';
-import './App.css';
-import HomeBar from './components/HomePage/HomeBar';
-import axios from 'axios';
-
+import './App.css'
+import Login from './components/Login'
+import Navbar from './components/Navbar'
+import Signup from './components/Signup'
+import {Routes,Route} from 'react-router-dom'                   
 
 function App() {
-  const [count, setCount] = useState(0);
-  // const navigate = useNavigate();
-
-  // const handleLogin = () => {
-  //   navigate('/home'); // navigate to /home route
-  // };
-
+ 
   return (
     <>
-    <HomeBar />
-      {/* <Navbar />
+      <h1>Event Management Software</h1>
+      <Navbar/>
+      <br/>
       <Routes>
         <Route path="/" element={<Login onLogin={handleLogin} />} />
         <Route path="/Signup" element={<Signup />} />
@@ -29,4 +20,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
