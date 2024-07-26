@@ -1,64 +1,91 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+import React, { useState } from 'react';
+import './Login.css';
+import { FaUser, FaLock } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import bcrypt from 'bcryptjs';
 
-const Login = () => {
-  const sendData = () => {
-    console.log('Send data');
+const LoginForm = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError(null); // Clear any previous error messages
+    setLoading(true); // Set loading to true when form is submitted
+
+    // Validate username and password
+    if (username.length < 3) {
+      setError('Username must be at least 3 characters long');
+      setLoading(false);
+      return;
+    }
+    if (password.length < 8) {
+      setError('Password must be at least 8 characters long');
+      setLoading(false);
+      return;
+    }
+
+    // Hash password using bcrypt
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Add your login logic here
+    // For demonstration purposes, I'll just log the hashed password
+    console.log('Login form submitted:', { username, hashedPassword, rememberMe });
+
+    // Simulate a delay to demonstrate the loading state
+    setTimeout(() => {
+      setLoading(false); // Set loading to false when login logic is complete
+    }, 2000);
   };
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '50vh',
-        backgroundColor: '#f0f0f0', // Optional: Background color for the page
-      }}
-    >
-      <Box
-        component="form"
-        sx={{
-          '& > :not(style)': { m: 1, width: '25ch' },
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-          backgroundColor: 'white', // White background color
-          padding: '32px', // Padding inside the box
-          borderRadius: '8px', // Rounded corners
-          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)', // Box shadow for better visibility
-          border: '1px solid grey', // Border around the box,
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <Stack spacing={2} direction="column" alignItems="center">
-          <TextField
+    <div className='wrapper'>
+      <form onSubmit={handleSubmit}>
+        <h1>Login</h1>
+        <div className="input-box">
+          <input
+            type="text"
+            placeholder='Username'
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
             required
-            id="outline-required"
-            label="Required - Username"
-            color="success"
-            variant="outlined"
           />
-          <TextField
-            required
-            id="outline-required"
-            label="Required - Password"
-            color="success"
-            variant="outlined"
+          <FaUser className='icon' size={20} />
+        </div>
+        <div className="input-box">
+          <input
             type="password"
+            placeholder='Password'
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            required
           />
-          <Button variant="contained" color="success" onClick={sendData}>
-            Login
-          </Button>
-        </Stack>
-      </Box>
-    </Box>
+          <FaLock className='icon' size={20} />
+        </div>
+        <div className="remember-forgot">
+          <label>
+            <input
+              type="checkbox"
+              checked={rememberMe}
+              onChange={(event) => setRememberMe(event.target.checked)}
+            />
+            Remember me
+          </label>
+          <a href="#">Forgot password?</a>
+        </div>
+        {error && <div className="error-message">{error}</div>}
+        <button type="submit" disabled={loading}>
+          {loading ? 'Loading...' : 'Login'}
+        </button>
+        <div className="register-link">
+          <p>Don't have an account? <Link to="/signup">Register</Link></p>
+        </div>
+      </form>
+    </div>
   );
 };
 
-export default Login;
+export default LoginForm;
