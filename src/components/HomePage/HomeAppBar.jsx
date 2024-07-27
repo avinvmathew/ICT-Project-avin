@@ -59,7 +59,7 @@ const HomeAppBar = () => {
 
                 }}>
                     <Typography id='HomeAppBarcentertext'>
-                    EventHub
+                    EventHub-Home
                     </Typography>
                 </Box>
                 {auth && (
