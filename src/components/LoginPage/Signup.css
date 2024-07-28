@@ -1,4 +1,4 @@
-.wrapper {
+/* .wrapper {
     max-width: 400px;
     margin: auto;
     padding: 20px;
@@ -15,7 +15,7 @@
   .input-box input {
     width: 100%;
     padding: 10px;
-    padding-left: 30px; /* space for icon */
+    padding-left: 30px; /* space for icon 
     border: 1px solid #ccc;
     border-radius: 4px;
   }
@@ -41,4 +41,4 @@
   .login-link {
     text-align: center;
     margin-top: 10px;
-  }
+  } */

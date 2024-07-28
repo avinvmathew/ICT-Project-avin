@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
 import { useMediaQuery } from "react-responsive";
-import "./NavbarMobile.css";
+import "./HomeAppBarAlt.css";
+import { Box, Typography } from "@mui/material";
 
 // Documentetion : https://blog.logrocket.com/create-responsive-navbar-react-css/
 
@@ -23,9 +24,21 @@ const NavbarHook = () => {
     const linkClassName = "nav__link";
     const buttonClassName = "nav__cta";
     return (
+      <>
+      <Box sx=
+                {{
+                    flexGrow: 1,
+                    display:'flex',
+                    marginLeft:'500px'
+
+                }}>
+                    <Typography id='HomeAppBarcentertext'>
+                    EventHub-Home
+                    </Typography>
+                </Box>
       <ul className={listClassName}>
         <li>
-          <NavLink to="/" className={linkClassName} onClick={closeMobileMenu}>
+          <NavLink to="" className={linkClassName} onClick={closeMobileMenu}>
             Home
           </NavLink>
         </li>
@@ -67,7 +80,7 @@ const NavbarHook = () => {
         </li>
         <li>
           <NavLink
-            to="/get-started"
+            to="/Loginpage"
             className={`${linkClassName} ${buttonClassName}`}
             onClick={closeMobileMenu}
           >
@@ -75,6 +88,7 @@ const NavbarHook = () => {
           </NavLink>
         </li>
       </ul>
+      </>
     );
   };
   return (

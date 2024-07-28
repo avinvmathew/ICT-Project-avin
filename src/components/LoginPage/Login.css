@@ -1,4 +1,4 @@
-.wrapper {
+/* .wrapper {
     width: 420px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -35,7 +35,7 @@
   
   .input-box input::placeholder {
     color: #fff;
-    opacity: 1; /* added opacity to make placeholder text visible */
+    opacity: 1; /* added opacity to make placeholder text visible 
   }
   
   .input-box .icon {
@@ -95,4 +95,4 @@
   
   .register-link p a:hover {
     text-decoration: underline;
-  }
+  } */
